@@ -1,0 +1,18 @@
+.card-img-caption {
+  border-bottom-left-radius: calc(0.25rem - 3px);
+  border-bottom-right-radius: calc(0.25rem - 3px);
+}
+
+.card-img-caption .card-img-top {
+  z-index: 0;
+}
+
+.card-img-caption .card-text {
+  text-align: right;
+  width: 100%;
+  margin: 120% 0;
+  padding-right: 5px;
+  position: absolute;
+  z-index: 1;
+  color: yellow;
+}

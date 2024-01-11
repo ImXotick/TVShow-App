@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem">
+  <div class="card-img-caption">
+    <p class="card-text">{{ showItem.rating }}</p>
+    <img
+      src="{{ showItem.img }}"
+      class="card-img-top"
+      style="height: 23rem"
+      alt="{{ showItem.title }}"
+    />
+  </div>
+  <div class="card-body" style="background-color: rgb(169, 186, 204)">
+    <h5 class="card-title">{{ showItem.title }}</h5>
+    <p class="card-text">{{ showItem.description }}</p>
+    <div class="btn btn-primary">Add to WatchList</div>
+  </div>
+</div>

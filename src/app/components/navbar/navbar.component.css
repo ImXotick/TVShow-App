@@ -1,0 +1,11 @@
+a {
+  color: white;
+}
+
+a:active {
+  color: aqua;
+}
+
+a:hover {
+  color: rgb(101, 162, 233);
+}

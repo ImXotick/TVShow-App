@@ -10,6 +10,7 @@ export class ShowService {
   constructor() {
     this.shows = [
       new Show(
+        'id1',
         'Dexter',
         8.7,
         'Dexter Morgan, a man with homicidal tendencies, lives a double life. He works as a forensic technician for the police department during the day and kills heinous perpetrators in his free time.',
@@ -17,6 +18,7 @@ export class ShowService {
         false
       ),
       new Show(
+        'id2',
         'Game of Thrones',
         9.2,
         'Nine noble families wage war against each other in order to gain control over the mythical land of Westeros. Meanwhile, a force is rising after millenniums and threatens the existence of living men.',
@@ -24,6 +26,7 @@ export class ShowService {
         false
       ),
       new Show(
+        'id3',
         'Breaking Bad',
         9.5,
         'Walter White, a chemistry teacher, discovers that he has cancer and decides to get into the meth-making business to repay his medical debts. His priorities begin to change when he partners with Jesse.',
@@ -35,5 +38,13 @@ export class ShowService {
 
   getShows(): Array<Show> {
     return this.shows;
+  }
+
+  toggleLiked(e: Show) {
+    let foundShow = this.shows.find((item) => item.id === e.id);
+
+    if (foundShow) {
+      foundShow.liked = !foundShow.liked;
+    }
   }
 }

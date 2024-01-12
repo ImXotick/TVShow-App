@@ -1,0 +1,30 @@
+<div class="card" style="width: 18rem">
+  <div class="card-img-caption">
+    <p class="card-text">{{ showItem.rating }}</p>
+    <img
+      src="{{ showItem.img }}"
+      class="card-img-top"
+      style="height: 23rem"
+      alt="{{ showItem.title }}"
+    />
+  </div>
+  <div class="card-body" style="background-color: rgb(56, 60, 65)">
+    <h5 class="card-title">{{ showItem.title }}</h5>
+    <div class="d-inline-flex pb-3">
+      <p class="card-text">
+        {{ showItem.description | slice : 0 : 75 }}...<app-modal
+          [showItem]="showItem"
+        />
+      </p>
+    </div>
+    <i-bs
+      ngbTooltip="Click to add to liked!"
+      [openDelay]="500"
+      [closeDelay]="100"
+      placement="bottom"
+      triggers="mouseenter:mouseleave"
+      [name]="showItem.liked ? 'heart-fill' : 'heart'"
+      (click)="toggleLiked()"
+    ></i-bs>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.full-text-button {
+  border: 0;
+  background-color: rgb(56, 60, 65);
+  text-decoration: underline;
+  color: rgb(75, 153, 242);
+}
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+
+.dark-modal .close {
+  color: white;
+}
+
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}

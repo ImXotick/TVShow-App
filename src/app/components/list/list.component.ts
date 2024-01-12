@@ -13,4 +13,8 @@ export class ListComponent {
   constructor(private showService: ShowService) {
     this.shows = showService.getShows();
   }
+
+  onToggleLiked(e: Show) {
+    this.showService.toggleLiked(e);
+  }
 }

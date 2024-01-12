@@ -12,8 +12,7 @@ import { heart, heartFill } from 'ngx-bootstrap-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LikedShowsComponent } from './pages/liked-shows/liked-shows.component';
+import { AboutComponent } from './components/about/about.component';
 
 const icons = {
   heart,
@@ -27,8 +26,7 @@ const icons = {
     ListComponent,
     ModalComponent,
     NavbarComponent,
-    HomeComponent,
-    LikedShowsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

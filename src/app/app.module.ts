@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { ListComponent } from './components/list/list.component';
+import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
+
 import { ShowService } from './services/shows/show.service';
 
 import { heart, heartFill } from 'ngx-bootstrap-icons';
@@ -26,6 +28,7 @@ const icons = {
     ListComponent,
     ModalComponent,
     NavbarComponent,
+    LikedShowsComponent,
     AboutComponent,
   ],
   imports: [

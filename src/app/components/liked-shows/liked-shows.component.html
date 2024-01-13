@@ -1,1 +1,5 @@
-<p>liked-shows works!</p>
+<div class="container d-flex justify-content-center">
+  <div class="row p-2" *ngFor="let show of likedShows">
+    <app-card [showItem]="show" (showEmitter)="onToggleLiked($event)" />
+  </div>
+</div>

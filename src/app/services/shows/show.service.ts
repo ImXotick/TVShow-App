@@ -31,13 +31,23 @@ export class ShowService {
         9.5,
         'Walter White, a chemistry teacher, discovers that he has cancer and decides to get into the meth-making business to repay his medical debts. His priorities begin to change when he partners with Jesse.',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEUOnXKnRL0jeo6y4_Nzt0RggJHYbxI_RjJUgCvmdG28BAwpAx',
-        false
+        true
       ),
     ];
   }
 
   getShows(): Array<Show> {
     return this.shows;
+  }
+
+  getLikedShows(): Array<Show> {
+    let likedShows = this.shows.filter((item) => {
+      if (item.liked) {
+        return item;
+      } else return;
+    });
+
+    return likedShows;
   }
 
   toggleLiked(e: Show) {

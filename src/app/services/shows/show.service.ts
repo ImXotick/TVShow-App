@@ -40,16 +40,6 @@ export class ShowService {
     return this.shows;
   }
 
-  getLikedShows(): Array<Show> {
-    let likedShows = this.shows.filter((item) => {
-      if (item.liked) {
-        return item;
-      } else return;
-    });
-
-    return likedShows;
-  }
-
   toggleLiked(e: Show) {
     let foundShow = this.shows.find((item) => item.id === e.id);
 

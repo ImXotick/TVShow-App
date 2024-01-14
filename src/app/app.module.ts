@@ -14,7 +14,7 @@ import { heart, heartFill } from 'ngx-bootstrap-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AboutComponent } from './components/about/about.component';
+import { FormsModule } from '@angular/forms';
 
 const icons = {
   heart,
@@ -29,7 +29,6 @@ const icons = {
     ModalComponent,
     NavbarComponent,
     LikedShowsComponent,
-    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +39,7 @@ const icons = {
       theme: ColorTheme.Danger,
     }),
     NgbModule,
+    FormsModule,
   ],
   providers: [ShowService],
   bootstrap: [AppComponent],

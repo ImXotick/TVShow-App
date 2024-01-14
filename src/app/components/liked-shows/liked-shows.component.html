@@ -1,5 +1,7 @@
 <div class="container d-flex justify-content-center">
-  <div class="row p-2" *ngFor="let show of likedShows">
-    <app-card [showItem]="show" (showEmitter)="onToggleLiked($event)" />
+  <div class="row p-2" *ngFor="let show of shows">
+    <div *ngIf="show.liked">
+      <app-card [showItem]="show" (showEmitter)="onToggleLiked($event)" />
+    </div>
   </div>
 </div>

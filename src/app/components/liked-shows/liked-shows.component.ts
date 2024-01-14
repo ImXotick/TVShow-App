@@ -8,19 +8,27 @@ import { ShowService } from '../../services/shows/show.service';
   styleUrls: ['./liked-shows.component.css'],
 })
 export class LikedShowsComponent implements OnInit {
-  public likedShows: Array<Show>;
+  public shows: Array<Show>;
+  public dialogVisible: boolean = false;
 
   constructor(private showService: ShowService) {
-    this.likedShows = showService.getLikedShows();
+    this.shows = showService.getShows();
   }
 
-  //TODO: FIX NOT WORKING LIKE IT SHOULD! NEED TO REMOVE OR ADD IT FROM ARRAYS
   onToggleLiked(e: Show) {
-    //TODO: likedShows.map... and remove item
     this.showService.toggleLiked(e);
   }
 
-  ngOnInit(): void {
-    console.log(this.likedShows);
+  handleSearch(search: string): Array<Show> {
+    if (!search) return this.shows;
+
+    const shows = this.shows.filter((item) => {
+      if (item.title.toLowerCase().includes(search.toLowerCase())) return item;
+      else return;
+    });
+
+    return shows;
   }
+
+  ngOnInit(): void {}
 }

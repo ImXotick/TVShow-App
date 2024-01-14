@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center">
+<div class="container justify-content-center d-flex">
   <div class="row p-2" *ngFor="let show of shows">
     <app-card [showItem]="show" (showEmitter)="onToggleLiked($event)" />
   </div>

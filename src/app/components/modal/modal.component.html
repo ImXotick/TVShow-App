@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">{{ showItem.title }} - Description</h4>
+    <h4 class="modal-title">{{ showItem.title }} - {{ showItem.rating }}</h4>
     <button
       type="button"
       class="btn-close"
@@ -12,6 +12,7 @@
     <p>{{ showItem.description }}</p>
   </div>
   <div class="modal-footer">
+    <button type="button" class="btn btn-info">Trailer</button>
     <button
       type="button"
       class="btn btn-secondary"

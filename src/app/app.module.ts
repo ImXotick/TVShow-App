@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { CreateShowComponent } from './components/create-show/create-show.component';
 
 const icons = {
   heart,
@@ -29,6 +30,7 @@ const icons = {
     ModalComponent,
     NavbarComponent,
     LikedShowsComponent,
+    CreateShowComponent,
   ],
   imports: [
     BrowserModule,

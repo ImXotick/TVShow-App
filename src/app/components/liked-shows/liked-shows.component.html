@@ -1,5 +1,6 @@
+<app-search (searchEmitter)="onSearch($event)" />
 <div class="container d-flex justify-content-center">
-  <div class="row p-2" *ngFor="let show of shows">
+  <div class="row p-2" *ngFor="let show of tempShows">
     <div *ngIf="show.liked">
       <app-card [showItem]="show" (showEmitter)="onToggleLiked($event)" />
     </div>

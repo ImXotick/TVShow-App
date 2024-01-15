@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { ShowService } from '../../services/shows/show.service';
 
 @Component({
-  selector: 'app-liked-shows',
-  templateUrl: './liked-shows.component.html',
-  styleUrls: ['./liked-shows.component.css'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class LikedShowsComponent implements OnInit {
+export class HomeComponent {
   public shows: Array<Show>;
   public tempShows: Array<Show>;
-  public dialogVisible: boolean = false;
 
   constructor(private showService: ShowService) {
     this.shows = showService.getShows();
@@ -30,6 +29,4 @@ export class LikedShowsComponent implements OnInit {
 
     this.tempShows = searchedShows;
   }
-
-  ngOnInit(): void {}
 }

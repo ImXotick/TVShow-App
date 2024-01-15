@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
-import { ListComponent } from './components/list/list.component';
+import { HomeComponent } from './components/home/home.component';
 import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
 
 import { ShowService } from './services/shows/show.service';
@@ -16,6 +16,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { CreateShowComponent } from './components/create-show/create-show.component';
+import { SearchComponent } from './components/search/search.component';
 
 const icons = {
   heart,
@@ -26,11 +27,12 @@ const icons = {
   declarations: [
     AppComponent,
     CardComponent,
-    ListComponent,
+    HomeComponent,
     ModalComponent,
     NavbarComponent,
     LikedShowsComponent,
     CreateShowComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

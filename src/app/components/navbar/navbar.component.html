@@ -1,41 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/shows/list">ADD ICON</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/liked-shows"
-            routerLinkActive="active"
-            >Liked Shows</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/create-show"
-            routerLinkActive="active"
-            >Create Shows</a
-          >
-        </li>
-      </ul>
+<mat-toolbar class="navbar">
+  <div class="logoSide">
+    <div class="logo">
+      <a routerLink="/home">ShoWatch</a>
     </div>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/liked-shows" routerLinkActive="active">Liked</a></li>
+      <li><a routerLink="/create-show" routerLinkActive="active">Create</a></li>
+    </ul>
   </div>
-</nav>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon class="mat-icon-size">account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>LogOut</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

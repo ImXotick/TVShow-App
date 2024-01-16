@@ -5,6 +5,7 @@ export class Show {
     public rating: number,
     public description: string,
     public img: string,
-    public liked: boolean
+    public liked: boolean,
+    public genre: Array<string>
   ) {}
 }

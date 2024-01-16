@@ -1,0 +1,48 @@
+.navbar {
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #80dfff;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.active {
+  background-color: #007399;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.logoSide {
+  display: flex;
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+.mat-icon-size {
+  transform: scale(2);
+}

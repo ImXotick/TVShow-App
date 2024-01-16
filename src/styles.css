@@ -1,3 +1,8 @@
+html,
 body {
-  background-color: rgb(76, 76, 87);
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

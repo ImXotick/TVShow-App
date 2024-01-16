@@ -1,30 +1,46 @@
-<div class="card" style="width: 18rem">
-  <div class="card-img-caption">
-    <p class="card-text">{{ showItem.rating }}</p>
-    <img
-      src="{{ showItem.img }}"
-      class="card-img-top"
-      style="height: 23rem"
-      alt="{{ showItem.title }}"
-    />
-  </div>
-  <div class="card-body" style="background-color: rgb(56, 60, 65)">
-    <h5 class="card-title">{{ showItem.title }}</h5>
-    <div class="d-inline-flex pb-3">
-      <p class="card-text">
-        {{ showItem.description | slice : 0 : 75 }}...<app-modal
-          [showItem]="showItem"
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ showItem.title }}</mat-card-title>
+      <mat-card-subtitle class="genres">
+        <div *ngFor="let genre of showItem.genre; index as i">
+          <div *ngIf="i !== showItem.genre.length - 1; else other_content">
+            {{ genre + "," }}&nbsp;
+          </div>
+          <ng-template #other_content> {{ genre }}</ng-template>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="image">
+      <img mat-card-image src="{{ showItem.img }}" alt="{{ showItem.title }}" />
+      <div class="rating">
+        <div class="ratingText">{{ showItem.rating }}</div>
+        <mat-icon
+          class="star"
+          aria-hidden="false"
+          aria-label="Star"
+          fontIcon="star"
         />
-      </p>
+      </div>
     </div>
-    <i-bs
-      ngbTooltip="Click to add to liked!"
-      [openDelay]="500"
-      [closeDelay]="100"
-      placement="bottom"
-      triggers="mouseenter:mouseleave"
-      [name]="showItem.liked ? 'heart-fill' : 'heart'"
-      (click)="toggleLiked()"
-    ></i-bs>
-  </div>
+    <mat-card-actions class="icons">
+      <button mat-fab extended class="button" (click)="openDialog(showItem)">
+        <mat-icon>description</mat-icon>
+        Description
+      </button>
+      <div *ngIf="!showItem.liked; else filledHeart">
+        <button mat-fab extended class="button" (click)="toggleLiked()">
+          <mat-icon>favorite_border</mat-icon>
+          Like
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
 </div>
+
+<ng-template #filledHeart>
+  <button mat-fab extended class="button" (click)="toggleLiked()">
+    <mat-icon>favorite</mat-icon>
+    Like
+  </button>
+</ng-template>

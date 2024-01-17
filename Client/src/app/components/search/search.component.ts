@@ -14,7 +14,7 @@ export class SearchComponent {
     this.searchEmitter = new EventEmitter<string>();
   }
 
-  searchChange() {
+  onSearchUpdate() {
     this.searchEmitter.emit(this.search);
   }
 }

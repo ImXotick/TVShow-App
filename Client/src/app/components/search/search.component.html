@@ -10,8 +10,9 @@
       matInput
       placeholder="Ex. Dexter"
       value=""
+      type="text"
       [(ngModel)]="search"
-      (ngModelChange)="searchChange()"
+      (ngModelChange)="onSearchUpdate()"
     />
   </mat-form-field>
 </div>

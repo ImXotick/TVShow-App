@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Observable } from 'rxjs';
+import { Show } from 'src/app/model/shows/show';
 
 @Component({
   selector: 'app-create-show',
@@ -10,6 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./create-show.component.css'],
 })
 export class CreateShowComponent {
+  public show!: Show;
+
+  genre = [];
+  title = '';
+  description = '';
   rating = 1;
 
   keywords = ['drama'];
@@ -37,4 +42,6 @@ export class CreateShowComponent {
     // Clear the input value
     event.chipInput!.clear();
   }
+
+  //submit(showForm: NgFrom)
 }

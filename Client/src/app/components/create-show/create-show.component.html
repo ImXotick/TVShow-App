@@ -2,15 +2,15 @@
   <mat-card class="container">
     <mat-form-field>
       <mat-label>Show name</mat-label>
-      <input matInput [(ngModel)]="title" type="text" />
+      <input matInput [(ngModel)]="show.title" type="text" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Show description</mat-label>
-      <textarea matInput [(ngModel)]="description" type="text"></textarea>
+      <textarea matInput [(ngModel)]="show.description" type="text"></textarea>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Show image URL</mat-label>
-      <input matInput [(ngModel)]="img" type="url" />
+      <input matInput [(ngModel)]="show.img" type="url" />
     </mat-form-field>
     <mat-form-field class="example-form-field">
       <mat-label>Show genres</mat-label>
@@ -40,10 +40,10 @@
       <label class="example-value-label">{{ slider.value }}</label>
     </div>
     <mat-slider class="example-margin" [max]="10" [min]="1" [step]="0.1">
-      <input matSliderThumb [(ngModel)]="rating" #slider />
+      <input matSliderThumb [(ngModel)]="show.rating" #slider />
     </mat-slider>
 
-    <button mat-fab extended (click)="submit()">
+    <button mat-fab extended (click)="submit()" [disabled]="toggleDisabled()">
       <mat-icon>add_box</mat-icon>
       Create show
     </button>

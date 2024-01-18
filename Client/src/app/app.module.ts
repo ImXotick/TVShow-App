@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
 
 import { ShowService } from './services/shows/show.service';
+import { MessagingService } from './services/messaging/messaging.service';
 
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [ShowService],
+  providers: [ShowService, MessagingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

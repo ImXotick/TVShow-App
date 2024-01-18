@@ -4,6 +4,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Show } from 'src/app/model/shows/show';
 import { ShowService } from 'src/app/services/shows/show.service';
+import { MessagingService } from 'src/app/services/messaging/messaging.service';
 
 @Component({
   selector: 'app-create-show',
@@ -13,17 +14,16 @@ import { ShowService } from 'src/app/services/shows/show.service';
 export class CreateShowComponent {
   public show!: Show;
 
-  title: string = '';
-  description: string = '';
-  rating: number = 1;
-  img: string = '';
-
   keywords = ['Drama'];
   myControl: FormControl;
   announcer = inject(LiveAnnouncer);
 
-  constructor(private showService: ShowService) {
-    this.myControl = new FormControl([]);
+  constructor(
+    private showService: ShowService,
+    private messageService: MessagingService
+  ) {
+    this.myControl = new FormControl(['Drama']);
+    this.initializeShow();
   }
 
   //Removes keyword
@@ -52,18 +52,17 @@ export class CreateShowComponent {
 
   //Function that calls post on submit
   submit() {
-    this.setShowValues();
     if (this.show) {
+      this.setShowValues();
       this.showService.createShow(this.show).subscribe({
         next: (result) => {
-          //this.messageService.setMessage(result.msg);
-          console.log(result.setMessage);
-          this.resetValues();
+          this.messageService.setMessage(result.msg);
+          this.initializeShow();
         },
-        error: (error) => console.log(error), //this.messageService.setMessage(error),
+        error: (error) => this.messageService.setMessage(error),
       });
     } else {
-      console.log('The form is in invalid state!'); //this.messageService.setMessage('The form is in invalid state!');
+      this.messageService.setMessage('The form is in invalid state!');
     }
   }
 
@@ -77,21 +76,41 @@ export class CreateShowComponent {
   setShowValues() {
     this.show = {
       id: this.generateId(),
-      title: this.title,
-      description: this.description,
+      title: this.show.title,
+      description: this.show.description,
       liked: false,
-      rating: this.rating,
-      img: this.img,
+      rating: this.show.rating,
+      img: this.show.img,
       genre: this.myControl.value,
     };
   }
 
-  //Resets values
-  resetValues() {
-    (this.title = ''),
-      (this.rating = 1),
-      (this.description = ''),
-      (this.img = '');
+  //Initializes show
+  initializeShow() {
+    this.show = {
+      id: '',
+      title: '',
+      description: '',
+      rating: 1,
+      img: '',
+      liked: false,
+      genre: [],
+    };
+
+    this.myControl.reset('Drama');
+    this.keywords = ['Drama'];
+  }
+
+  //Toggles disabled button
+  toggleDisabled() {
+    if (
+      this.show.title !== '' &&
+      this.show.description !== '' &&
+      this.show.rating !== 1 &&
+      this.myControl !== null
+    )
+      return false;
+    else return true;
   }
 
   trackByShowId: TrackByFunction<Show> = (index, show) => show.id;

@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessagingService {
+  public message: string = '';
 
-  constructor() { }
+  constructor() {}
+
+  public getMessage(): string {
+    return this.message;
+  }
+
+  public setMessage(m: string) {
+    this.message = m;
+  }
 }

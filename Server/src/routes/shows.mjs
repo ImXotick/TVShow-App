@@ -27,7 +27,7 @@ router.post("/api/shows", (req, res) => {
   shows.push(show);
   return res
     .status(200)
-    .json({ msg: `Product with id: ${show.id} successfully created!` });
+    .json({ msg: `Show with id: ${show.id} successfully created!` });
 });
 
 //Toggles favorite

@@ -14,6 +14,7 @@ export class ShowService {
   }
 
   createShow(show: Show): Observable<any> {
+    console.log('ran');
     return this.http.post('http://localhost:3000/api/shows', show);
   }
 

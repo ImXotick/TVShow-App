@@ -2,20 +2,24 @@
   <mat-card class="container">
     <mat-form-field>
       <mat-label>Show name</mat-label>
-      <input matInput [(ngModel)]="title" />
+      <input matInput [(ngModel)]="title" type="text" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Show description</mat-label>
-      <textarea matInput [(ngModel)]="description"></textarea>
+      <textarea matInput [(ngModel)]="description" type="text"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Show image URL</mat-label>
+      <input matInput [(ngModel)]="img" type="url" />
     </mat-form-field>
     <mat-form-field class="example-form-field">
       <mat-label>Show genres</mat-label>
       <mat-chip-grid
         #chipGrid
         aria-label="Enter genres"
-        [formControl]="formControl"
+        [formControl]="myControl"
       >
-        <div *ngFor="let keyword of keywords; track: keyword">
+        <div *ngFor="let keyword of keywords; trackBy: trackByShowId">
           <mat-chip-row (removed)="removeKeyword(keyword)">
             {{ keyword }}
             <button matChipRemove aria-label="'remove ' + keyword">
@@ -28,7 +32,6 @@
         placeholder="New genre..."
         [matChipInputFor]="chipGrid"
         (matChipInputTokenEnd)="add($event)"
-        [(ngModel)]="genre"
       />
     </mat-form-field>
     <h2>Show rating</h2>
@@ -40,10 +43,9 @@
       <input matSliderThumb [(ngModel)]="rating" #slider />
     </mat-slider>
 
-    <button mat-fab extended>
+    <button mat-fab extended (click)="submit()">
       <mat-icon>add_box</mat-icon>
       Create show
     </button>
   </mat-card>
 </div>
-{{ title }} + {{ description }} + {{ rating }} + {{ genre }}

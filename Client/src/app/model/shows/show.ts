@@ -1,11 +1,9 @@
-export class Show {
-  constructor(
-    public id: string,
-    public title: string,
-    public rating: number,
-    public description: string,
-    public img: string,
-    public liked: boolean,
-    public genre: Array<string>
-  ) {}
+export interface Show {
+  id: string;
+  title: string;
+  rating: number;
+  description: string;
+  img: string;
+  liked: boolean;
+  genre: Array<string>;
 }

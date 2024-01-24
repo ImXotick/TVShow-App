@@ -17,7 +17,11 @@ import { CreateShowComponent } from './components/create-show/create-show.compon
 import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { LogoutComponent } from './user/logout/logout.component';
+import { TVShowAppInterceptor } from './services/TVShow-App-interceptor';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     LikedShowsComponent,
     CreateShowComponent,
     SearchComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,15 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [ShowService, MessagingService],
+  providers: [
+    ShowService,
+    MessagingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TVShowAppInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

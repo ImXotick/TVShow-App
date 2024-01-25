@@ -16,10 +16,6 @@ export class LikedShowsComponent implements OnInit {
     this.shows$ = showService.getShows();
   }
 
-  onToggleLiked(e: Show) {
-    this.showService.toggleLiked(e);
-  }
-
   onSearch(searchVal: string) {}
 
   /*

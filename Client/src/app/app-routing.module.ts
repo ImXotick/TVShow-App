@@ -3,12 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
-import { CreateShowComponent } from './components/create-show/create-show.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { AuthGGuard } from './guards/auth-g.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'liked-shows', component: LikedShowsComponent },
-  { path: 'create-show', component: CreateShowComponent },
+  {
+    path: 'liked-shows',
+    component: LikedShowsComponent,
+    canActivate: [AuthGGuard],
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', redirectTo: '/register' },
 ];
 
 @NgModule({

@@ -20,8 +20,8 @@ import { MaterialModule } from './material/material.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { LogoutComponent } from './user/logout/logout.component';
 import { TVShowAppInterceptor } from './services/TVShow-App-interceptor';
+import { AuthGGuard } from './guards/auth-g.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,6 @@ import { TVShowAppInterceptor } from './services/TVShow-App-interceptor';
     SearchComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +52,7 @@ import { TVShowAppInterceptor } from './services/TVShow-App-interceptor';
       useClass: TVShowAppInterceptor,
       multi: true,
     },
+    AuthGGuard,
   ],
   bootstrap: [AppComponent],
 })

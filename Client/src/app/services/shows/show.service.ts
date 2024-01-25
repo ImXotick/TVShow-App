@@ -14,11 +14,10 @@ export class ShowService {
   }
 
   createShow(show: Show): Observable<any> {
-    console.log('ran');
     return this.http.post('http://localhost:3000/api/shows', show);
   }
 
-  toggleLiked(s: Show): Observable<Show> {
+  toggleLiked(s: Show): Observable<any> {
     return this.http.patch<Show>('http://localhost:3000/api/shows/' + s.id, {
       liked: !s.liked,
     });

@@ -1,15 +1,16 @@
 import { Router } from "express";
-import { jwt } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+import users from "../utils/users.mjs";
 
 const router = Router();
 
-var users = {};
-
+//Handles login
 router.post("/login", (req, res) => {
-  console.log("/Login");
-  /*
   var user = req.body;
-  if (users[user.username] && users[user.username] === user.password) {
+  let foundUser = users.find(
+    (item) => item.username === user.username && item.password === user.password
+  );
+  if (foundUser) {
     res.json({
       msg: "Successfully logged in",
       token: jwt.sign({ user: user.username }, "SECRET"),
@@ -17,15 +18,16 @@ router.post("/login", (req, res) => {
   } else {
     res.status(400).json({ msg: "Invalid username or password" });
   }
-  */
 });
 
+//Handles register
 router.post("/register", (req, res) => {
   var user = req.body;
-  if (users[user.username]) {
+  let foundUser = users.find((item) => item.username === user.username);
+  if (foundUser)
     res.status(400).json({ msg: "User already exists, please login." });
-  } else {
-    users[user.username] = user.password;
+  else {
+    users.push(user);
     res.json({
       msg: "Successfully created user, please login",
     });

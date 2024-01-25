@@ -6,7 +6,6 @@
     <ul>
       <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
       <li><a routerLink="/liked-shows" routerLinkActive="active">Liked</a></li>
-      <li><a routerLink="/create-show" routerLinkActive="active">Create</a></li>
     </ul>
   </div>
   <button
@@ -17,8 +16,16 @@
     <mat-icon class="mat-icon-size">account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>LogOut</span>
-    </button>
+    <div *ngIf="isLoggedIn === true; else login">
+      <button mat-menu-item>
+        <span (click)="logout()">LogOut</span>
+      </button>
+    </div>
   </mat-menu>
 </mat-toolbar>
+
+<ng-template #login>
+  <button mat-menu-item>
+    <span (click)="logIn()">Login</span>
+  </button>
+</ng-template>

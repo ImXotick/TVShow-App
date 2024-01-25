@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { ShowService } from '../../services/shows/show.service';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +15,8 @@ export class HomeComponent {
     this.shows$ = showService.getShows();
   }
 
-  onToggleLiked(e: Show) {
-    this.showService.toggleLiked(e);
+  test() {
+    console.log('test');
   }
 
   onSearch(searchQuery: string) {}

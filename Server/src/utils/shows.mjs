@@ -26,7 +26,7 @@ const shows = [
     description:
       "Walter White, a chemistry teacher, discovers that he has cancer and decides to get into the meth-making business to repay his medical debts. His priorities begin to change when he partners with Jesse.",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEUOnXKnRL0jeo6y4_Nzt0RggJHYbxI_RjJUgCvmdG28BAwpAx",
-    liked: true,
+    liked: false,
     genre: ["Drama", "Crime"],
   },
 ];

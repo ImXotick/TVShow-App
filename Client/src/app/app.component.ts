@@ -9,7 +9,5 @@ import { AuthService } from './services/auth/auth.service';
 export class AppComponent {
   title = 'TVShow-App';
 
-  constructor(private authService: AuthService) {
-    authService.doLogin();
-  }
+  constructor(private authService: AuthService) {}
 }

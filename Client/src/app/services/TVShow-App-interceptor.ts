@@ -18,10 +18,11 @@ export class TVShowAppInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (this.authService.authToken) {
+    if (this.authService.token) {
       const authReq = req.clone({
-        headers: req.headers.set('X-AUTH-HEADER', this.authService.authToken),
+        headers: req.headers.set('X-AUTH-HEADER', this.authService.token),
       });
+      console.log('Making an authorized request!');
       req = authReq;
     }
     return next.handle(req);

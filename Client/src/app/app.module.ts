@@ -13,7 +13,6 @@ import { MessagingService } from './services/messaging/messaging.service';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { CreateShowComponent } from './components/create-show/create-show.component';
 import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -31,7 +30,6 @@ import { AuthGGuard } from './guards/auth-g.guard';
     ModalComponent,
     NavbarComponent,
     LikedShowsComponent,
-    CreateShowComponent,
     SearchComponent,
     LoginComponent,
     RegisterComponent,

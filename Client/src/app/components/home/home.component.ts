@@ -15,9 +15,5 @@ export class HomeComponent {
     this.shows$ = showService.getShows();
   }
 
-  test() {
-    console.log('test');
-  }
-
   onSearch(searchQuery: string) {}
 }

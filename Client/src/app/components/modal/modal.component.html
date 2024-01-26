@@ -15,21 +15,37 @@
   </mat-dialog-content>
   <h2 mat-dialog-title>Comments:</h2>
   <mat-dialog-content>
-    <div class="comment">
-      <p>This is a test comment: Edit it out!</p>
-      <p>Alen Šober</p>
+    <div class="comment" *ngFor="let comment of data.comments">
+      <p>{{ comment.text }}</p>
+      <div class="authorDate">
+        <p>{{ comment.author }}</p>
+        <p>&nbsp;- {{ comment.date }}</p>
+      </div>
+      <mat-divider />
     </div>
-    <mat-divider></mat-divider>
-    <div class="comment">
-      <p>This is a test comment: Edit it out!</p>
-      <p>Alen Šober</p>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="comment">
-      <p>This is a test comment: Edit it out!</p>
-      <p>Alen Šober</p>
+    <div *ngIf="!isLoggedIn()">
+      <mat-form-field class="inputContainer">
+        <mat-label>Add comment</mat-label>
+        <input
+          [(ngModel)]="comment.text"
+          matInput
+          placeholder="Ex. this is a comment!"
+          name="comment"
+        />
+      </mat-form-field>
+      <div class="button">
+        <button
+          mat-raised-button
+          color="primary"
+          disabled="{{ checkText() }}"
+          (click)="handleComment()"
+        >
+          Comment
+        </button>
+      </div>
     </div>
   </mat-dialog-content>
+
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>
     <a mat-button href="" target="_blank">Trailer</a>

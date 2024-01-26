@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { ShowService } from 'src/app/services/shows/show.service';
 import { MessagingService } from 'src/app/services/messaging/messaging.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-card',
@@ -16,6 +17,7 @@ export class CardComponent {
   public modalVisible: boolean = false;
 
   constructor(
+    private authService: AuthService,
     private showService: ShowService,
     private messageService: MessagingService,
     public dialog: MatDialog
@@ -30,6 +32,9 @@ export class CardComponent {
   }
 
   toggleLiked() {
+    if (!this.authService.isLoggedIn())
+      return alert('You need to login to like shows!');
+
     this.showService.toggleLiked(this.showItem).subscribe({
       next: (result) => {
         this.showItem.liked = !this.showItem.liked;

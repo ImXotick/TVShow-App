@@ -8,6 +8,7 @@ const shows = [
     img: "https://m.media-amazon.com/images/M/MV5BZjkzMmU5MjMtODllZS00OTA5LTk2ZTEtNjdhYjZhMDA5ZTRhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_.jpg",
     liked: false,
     genre: ["Drama", "Action"],
+    comments: [],
   },
   {
     id: "id2",
@@ -18,6 +19,13 @@ const shows = [
     img: "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/91iY86ZIuOL._AC_UF894,1000_QL80_.jpg",
     liked: false,
     genre: ["Drama", "Action", "Fantasy"],
+    comments: [
+      {
+        text: "This is a test comment!",
+        author: "Alen Šober",
+        date: "2024.01.26",
+      },
+    ],
   },
   {
     id: "id3",
@@ -28,6 +36,7 @@ const shows = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEUOnXKnRL0jeo6y4_Nzt0RggJHYbxI_RjJUgCvmdG28BAwpAx",
     liked: false,
     genre: ["Drama", "Crime"],
+    comments: [],
   },
 ];
 

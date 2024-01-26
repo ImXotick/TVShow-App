@@ -6,4 +6,5 @@ export interface Show {
   img: string;
   liked: boolean;
   genre: Array<string>;
+  comments: Array<any>;
 }

@@ -15,6 +15,7 @@ router.post("/login", (req, res) => {
       msg: "Successfully logged in",
       token: jwt.sign({ user: user.username }, "SECRET"),
       username: foundUser.username,
+      likedShows: foundUser.likedShows,
     });
   } else {
     res.status(400).json({ msg: "Invalid username or password" });

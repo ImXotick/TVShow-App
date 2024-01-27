@@ -2,12 +2,12 @@ const users = [
   {
     username: "tester",
     password: "tester",
-    likedShows: ["Dexter, Breaking Bad"],
+    likedShows: ["id1", "id2"],
   },
   {
     username: "tester2",
     password: "tester2",
-    likedShows: ["Dexter, Breaking Bad"],
+    likedShows: ["id1", "id3"],
   },
 ];
 

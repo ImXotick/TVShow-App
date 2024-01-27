@@ -3,6 +3,7 @@ import { Show } from '../../model/shows/show';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Comment } from '../../model/comment/comment';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',

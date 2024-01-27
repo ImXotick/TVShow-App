@@ -32,3 +32,8 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.comments {
+  max-height: 20rem;
+  max-width: 35rem;
+}

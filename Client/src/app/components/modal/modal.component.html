@@ -1,7 +1,7 @@
 <div class="container">
   <h2 mat-dialog-title>
     <div class="rating">
-      {{ data.title }} - {{ data.rating }}
+      {{ data.show.title }} - {{ data.show.rating }}
       <mat-icon
         class="star"
         aria-hidden="false"
@@ -11,11 +11,11 @@
     </div>
   </h2>
   <mat-dialog-content class="mat-typography">
-    <p>{{ data.description }}</p>
+    <p>{{ data.show.description }}</p>
   </mat-dialog-content>
   <h2 mat-dialog-title>Comments:</h2>
-  <mat-dialog-content>
-    <div class="comment" *ngFor="let comment of data.comments">
+  <mat-dialog-content class="comments">
+    <div class="comment" *ngFor="let comment of data.show.comments">
       <p>{{ comment.text }}</p>
       <div class="authorDate">
         <p>{{ comment.author }}</p>
@@ -23,7 +23,7 @@
       </div>
       <mat-divider />
     </div>
-    <div *ngIf="!isLoggedIn()">
+    <div *ngIf="isLoggedIn()">
       <mat-form-field class="inputContainer">
         <mat-label>Add comment</mat-label>
         <input
@@ -35,6 +35,7 @@
       </mat-form-field>
       <div class="button">
         <button
+          [mat-dialog-close]="true"
           mat-raised-button
           color="primary"
           disabled="{{ checkText() }}"
@@ -47,7 +48,9 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button mat-dialog-close [mat-dialog-close]="false">
+      Close
+    </button>
     <a mat-button href="" target="_blank">Trailer</a>
   </mat-dialog-actions>
 </div>

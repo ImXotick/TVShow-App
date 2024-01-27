@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private _token: string = '';
+  private _username: string = '';
 
   constructor() {}
 
@@ -14,6 +15,14 @@ export class AuthService {
 
   get token() {
     return this._token;
+  }
+
+  set username(username: string) {
+    this._username = username;
+  }
+
+  get username() {
+    return this._username;
   }
 
   isLoggedIn() {

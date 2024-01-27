@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
@@ -13,8 +13,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class CardComponent {
   @Input() public showItem!: Show;
+  @Output() refetchNewShows: EventEmitter<any> = new EventEmitter();
 
   public modalVisible: boolean = false;
+  public addedComment: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -23,14 +25,22 @@ export class CardComponent {
     public dialog: MatDialog
   ) {}
 
-  openDialog(show: Show) {
-    const dialogRef = this.dialog.open(ModalComponent, { data: show });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { show: this.showItem },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      this.addedComment = result;
+      if (this.addedComment) this.refetchShows();
     });
   }
 
+  refetchShows() {
+    this.refetchNewShows.emit();
+  }
+
+  //Calls toggleLiked in service
   toggleLiked() {
     if (!this.authService.isLoggedIn())
       return alert('You need to login to like shows!');

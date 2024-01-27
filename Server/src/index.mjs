@@ -19,6 +19,11 @@ app.get("/api/fail", (req, res) =>
   res.status(403).json({ msg: "You are not allowed to access this api!" })
 );
 
+app.listen(PORT, () => {
+  console.log(`Connected to DB & Running on port ${PORT}`);
+});
+
+/*
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -29,3 +34,4 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+*/

@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Show } from '../../model/shows/show';
 import { Comment } from '../../model/comment/comment';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShowService } from 'src/app/services/shows/show.service';
@@ -14,7 +13,7 @@ export class ModalComponent {
   public comment!: Comment;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Show,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private authService: AuthService,
     private showService: ShowService
   ) {
@@ -29,20 +28,14 @@ export class ModalComponent {
   //Handles add comment
   handleComment() {
     if (!this.checkText()) {
-      this.comment.author = 'test';
       this.comment.date = new Date().toLocaleDateString();
-      this.showService.addComment(this.data, this.comment).subscribe({
+      this.showService.addComment(this.data.show, this.comment).subscribe({
         next: (result) => {
-          this.refetchShows();
+          console.log('Successful!');
         },
         error: (error) => console.log(error),
       });
     }
-  }
-
-  //Re fetches shows after we add them
-  refetchShows() {
-    this.showService.getShows();
   }
 
   //Handles text check
@@ -54,7 +47,7 @@ export class ModalComponent {
   //Initializes comment
   initializeComment() {
     this.comment = {
-      author: '',
+      author: this.authService.username,
       text: '',
       date: '',
     };

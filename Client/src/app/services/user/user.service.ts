@@ -19,6 +19,7 @@ export class UserService {
       .pipe(
         map((res: any) => {
           this.authService.token = res.token;
+          this.authService.username = res.username;
           return res;
         })
       );

@@ -12,6 +12,7 @@ router.get("/api/shows", (req, res) => {
     });
     return res.status(200).json(foundShows);
   }
+  //console.log(shows);
   return res.status(200).json(shows);
 });
 

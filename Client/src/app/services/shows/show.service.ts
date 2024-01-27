@@ -11,7 +11,6 @@ export class ShowService {
   constructor(private http: HttpClient) {}
 
   getShows(): Observable<Show[]> {
-    console.log('ran');
     return this.http.get<Show[]>('http://localhost:3000/api/shows');
   }
 

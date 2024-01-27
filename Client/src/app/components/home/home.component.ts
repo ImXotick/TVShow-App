@@ -15,5 +15,10 @@ export class HomeComponent {
     this.shows$ = showService.getShows();
   }
 
+  //Re fetches shows
+  refetchShows() {
+    this.shows$ = this.showService.getShows();
+  }
+
   onSearch(searchQuery: string) {}
 }

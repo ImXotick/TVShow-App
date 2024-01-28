@@ -1,5 +1,6 @@
 import { Router } from "express";
 import shows from "../utils/shows.mjs";
+import users from "../utils/users.mjs";
 
 const router = Router();
 
@@ -16,9 +17,10 @@ router.get("/api/shows", (req, res) => {
   return res.status(200).json(shows);
 });
 
+//TODO:FIX FOR USERS
 //Toggles favorite
 router.patch("/api/shows/:id", (req, res) => {
-  let showId = req.params.id;
+  let { showId } = req.params.id;
   let foundShow = shows.find((item) => item.id === showId);
   if (foundShow) {
     foundShow.liked = req.body.liked;

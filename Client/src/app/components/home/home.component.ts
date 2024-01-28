@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { ShowService } from '../../services/shows/show.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -16,15 +16,19 @@ export class HomeComponent {
     private showService: ShowService,
     private authService: AuthService
   ) {
-    this.shows$ = showService.getShows();
-    //console.log(this.shows$);
-    this.shows$.subscribe((data) =>
-      data.map((show) => {
-        show.liked = true;
-        return show;
-      })
-    );
-    this.shows$.subscribe((val) => console.log(val));
+    if (!this.authService.isLoggedIn()) this.shows$ = showService.getShows();
+    else {
+      this.shows$ = showService.getShows().pipe(
+        map((shows) =>
+          shows.map((show) => {
+            if (this.authService.likedShows.includes(show.id)) {
+              show.liked = true;
+              return show;
+            } else return show;
+          })
+        )
+      );
+    }
   }
 
   //Re fetches shows

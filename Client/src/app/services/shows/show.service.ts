@@ -22,6 +22,7 @@ export class ShowService {
     });
   }
 
+  //TODO: FIX
   toggleLiked(s: Show): Observable<any> {
     return this.http.patch<Show>('http://localhost:3000/api/shows/' + s.id, {
       liked: !s.liked,

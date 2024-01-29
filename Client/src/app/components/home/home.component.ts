@@ -21,6 +21,8 @@ export class HomeComponent {
       this.shows$ = showService.getShows().pipe(
         map((shows) =>
           shows.map((show) => {
+            if (!this.authService.likedShows) return show;
+
             if (this.authService.likedShows.includes(show.id)) {
               show.liked = true;
               return show;

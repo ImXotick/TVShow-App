@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/model/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -8,19 +9,31 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  public username: string = '';
-  public password: string = '';
+  public user!: User;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    this.initializeUser();
+  }
 
   //Calls login
   login() {
-    if (!this.username) return alert('Username is empty!');
-    else if (!this.password) return alert('Password is empty!');
+    if (!this.user.username) return alert('Username is empty!');
+    else if (!this.user.password) return alert('Password is empty!');
 
-    this.userService.login(this.username, this.password).subscribe({
-      next: (res) => this.router.navigate(['home']),
+    this.userService.login(this.user).subscribe({
+      next: (res) => {
+        this.initializeUser();
+        this.router.navigate(['home']);
+      },
       error: (error) => alert(error.error.msg),
     });
+  }
+
+  //Initializes user
+  initializeUser() {
+    this.user = {
+      username: '',
+      password: '',
+    };
   }
 }

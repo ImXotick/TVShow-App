@@ -40,4 +40,4 @@ const shows = [
   },
 ];
 
-export default shows;
+module.exports = shows;

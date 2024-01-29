@@ -1,13 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const users = new Schema(
+const showSchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-    },
     username: {
       type: String,
       required: true,
@@ -16,8 +12,12 @@ const users = new Schema(
       type: String,
       required: true,
     },
+    likedShows: {
+      type: Array,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Users", users);
+module.exports = mongoose.model("Show", showSchema);

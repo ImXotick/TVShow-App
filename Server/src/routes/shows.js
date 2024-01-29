@@ -1,8 +1,7 @@
-import { Router } from "express";
-import shows from "../utils/shows.mjs";
-import users from "../utils/users.mjs";
+const express = require("express");
+const shows = require("../utils/shows.js");
 
-const router = Router();
+const router = express.Router();
 
 //Gets shows
 router.get("/api/shows", (req, res) => {
@@ -46,4 +45,4 @@ router.post("/api/shows/comment", (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

@@ -12,7 +12,8 @@ export class ShowService {
   constructor(private http: HttpClient) {}
 
   getShows(): Observable<Show[]> {
-    return this.http.get<Show[]>('http://localhost:3000/api/shows');
+    console.log(this.http.get<Show[]>('http://localhost:3000/shows'));
+    return this.http.get<Show[]>('http://localhost:3000/shows');
   }
 
   addComment(show: Show, comment: Comment): Observable<any> {

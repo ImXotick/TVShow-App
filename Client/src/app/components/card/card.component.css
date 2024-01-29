@@ -1,7 +1,8 @@
 .container {
-  width: 20rem;
+  max-width: 22rem;
   margin-left: 1em;
   margin-right: 1em;
+  margin-bottom: 2em;
 }
 
 img {
@@ -13,12 +14,14 @@ img {
 
 .genres {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   padding-right: 5px;
 }
 
 .icons {
   justify-content: center;
+  margin-bottom: 0.5em;
 }
 
 .button {

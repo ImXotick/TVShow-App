@@ -4,17 +4,34 @@ const Schema = mongoose.Schema;
 
 const showSchema = new Schema(
   {
-    username: {
+    id: {
       type: String,
       required: true,
     },
-    password: {
+    title: {
       type: String,
       required: true,
     },
-    likedShows: {
+    rating: {
+      type: Number,
+    },
+    description: {
+      type: String,
+    },
+    img: {
+      type: String,
+    },
+    liked: {
+      type: Boolean,
+    },
+    genre: {
       type: Array,
-      required: true,
+    },
+    comments: {
+      type: Array,
+    },
+    stars: {
+      type: Array,
     },
   },
   { timestamps: true }

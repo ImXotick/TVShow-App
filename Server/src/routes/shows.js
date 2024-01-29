@@ -1,20 +1,11 @@
 const express = require("express");
+const { getShows } = require("../controllers/showsController.js");
 const shows = require("../utils/shows.js");
 
 const router = express.Router();
 
 //Gets shows
-router.get("/api/shows", (req, res) => {
-  var query = (req.query["q"] || "").toLowerCase();
-  if (query) {
-    const foundShows = shows.filter((show) => {
-      show.title.toLowerCase().indexOf(query) != -1;
-    });
-    return res.status(200).json(foundShows);
-  }
-  //console.log(shows);
-  return res.status(200).json(shows);
-});
+router.get("/shows", getShows);
 
 //TODO:FIX FOR USERS
 //Toggles favorite

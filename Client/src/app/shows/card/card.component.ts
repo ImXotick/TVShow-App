@@ -32,7 +32,6 @@ export class CardComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.addedComment = result;
-      //if (this.addedComment) this.refetchShows(); TODO: FIX
     });
   }
 
@@ -42,10 +41,15 @@ export class CardComponent {
       return alert('You need to login to like shows!');
 
     this.showService.toggleLiked(this.showItem).subscribe({
-      next: (result) => {
+      next: (res) => {
         this.showItem.liked = !this.showItem.liked;
+        this.messageService.setMessage(res.msg);
+        this.messageService.openSnackBar();
       },
-      error: (error) => this.messageService.setMessage(error),
+      error: (error) => {
+        this.messageService.setMessage(error);
+        this.messageService.openSnackBar();
+      },
     });
   }
 }

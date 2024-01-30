@@ -41,9 +41,11 @@ const updateLiked = async (req, res) => {
       );
     }
 
-    return res.status(200).json({ msg: `Successfully changed liked!` });
+    if (liked)
+      return res.status(200).json({ msg: `Successfully added to liked!` });
+    else
+      return res.status(200).json({ msg: `Successfully removed from liked!` });
   } catch (error) {
-    console.log(error.message);
     return res.status(400).json({ error: error.message });
   }
 };

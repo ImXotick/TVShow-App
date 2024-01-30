@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -29,6 +30,7 @@ const MaterialComponents = [
   FormsModule,
   MatSliderModule,
   MatChipsModule,
+  MatSnackBarModule,
   MatDividerModule,
 ];
 

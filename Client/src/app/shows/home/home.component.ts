@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { ShowService } from '../../services/shows/show.service';
 import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

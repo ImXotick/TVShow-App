@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './components/card/card.component';
-import { HomeComponent } from './components/home/home.component';
-import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
+import { CardComponent } from './shows/card/card.component';
+import { HomeComponent } from './shows/home/home.component';
+import { LikedShowsComponent } from './shows/liked-shows/liked-shows.component';
 
 import { ShowService } from './services/shows/show.service';
 import { MessagingService } from './services/messaging/messaging.service';

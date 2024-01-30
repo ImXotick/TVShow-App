@@ -10,11 +10,19 @@
       />
     </div>
   </h2>
-  <mat-dialog-content class="mat-typography">
-    <h3 class="starsTitle">stars</h3>
-    <p>{{ data.show.stars }}</p>
+  <mat-dialog-content>
+    <div class="smallTitle">Stars</div>
+    <div class="stars">
+      <div *ngFor="let star of data.show.stars; index as i">
+        <div *ngIf="i !== data.show.stars.length - 1; else other_content">
+          {{ star + "," }}&nbsp;
+        </div>
+        <ng-template #other_content> {{ star }}</ng-template>
+      </div>
+    </div>
   </mat-dialog-content>
   <mat-dialog-content class="mat-typography">
+    <div class="smallTitle">Description</div>
     <p>{{ data.show.description }}</p>
   </mat-dialog-content>
   <h2 mat-dialog-title>Comments:</h2>

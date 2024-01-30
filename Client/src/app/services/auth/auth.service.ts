@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private _token: string = '';
   private _username: string = '';
-  private _likedShows!: string[];
 
   constructor() {}
 
@@ -24,14 +23,6 @@ export class AuthService {
 
   get username() {
     return this._username;
-  }
-
-  set likedShows(likedShows: string[]) {
-    this._likedShows = likedShows;
-  }
-
-  get likedShows() {
-    return this._likedShows;
   }
 
   isLoggedIn() {

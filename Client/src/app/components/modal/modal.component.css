@@ -37,3 +37,14 @@ a {
   max-height: 20rem;
   max-width: 35rem;
 }
+
+.smallTitle {
+  font-size: 23;
+  color: white;
+  padding-bottom: 5px;
+}
+.stars {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}

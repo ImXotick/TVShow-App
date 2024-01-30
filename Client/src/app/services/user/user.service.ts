@@ -20,7 +20,6 @@ export class UserService {
         map((res: any) => {
           this.authService.token = res.token;
           this.authService.username = res.username;
-          this.authService.likedShows = res.likedShows;
           return res;
         })
       );

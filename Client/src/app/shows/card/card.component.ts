@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
+import { ModalComponent } from '../../components/modal/modal.component';
 import { ShowService } from 'src/app/services/shows/show.service';
 import { MessagingService } from 'src/app/services/messaging/messaging.service';
 import { AuthService } from 'src/app/services/auth/auth.service';

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { LikedShowsComponent } from './components/liked-shows/liked-shows.component';
+import { HomeComponent } from './shows/home/home.component';
+import { LikedShowsComponent } from './shows/liked-shows/liked-shows.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGGuard } from './guards/auth-g.guard';

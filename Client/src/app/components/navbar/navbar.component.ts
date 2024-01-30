@@ -20,6 +20,7 @@ export class NavbarComponent {
 
   logout() {
     this.authService.token = '';
+    this.authService.username = '';
     this.router.navigate(['login']);
   }
 

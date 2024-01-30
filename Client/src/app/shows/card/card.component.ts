@@ -26,19 +26,15 @@ export class CardComponent {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalComponent, {
+    this.dialog.open(ModalComponent, {
       data: { show: this.showItem },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      this.addedComment = result;
     });
   }
 
   //Calls toggleLiked in service
   toggleLiked() {
     if (!this.authService.isLoggedIn())
-      return alert('You need to login to like shows!');
+      return this.messageService.setMessage('You need to login to like shows!');
 
     this.showService.toggleLiked(this.showItem).subscribe({
       next: (res) => {

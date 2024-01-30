@@ -4,8 +4,9 @@ import {
   HttpEvent,
   HttpHandler,
   HttpRequest,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from './auth/auth.service';
 
 @Injectable({

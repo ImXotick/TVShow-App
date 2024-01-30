@@ -7,7 +7,7 @@ const loginUser = async (req, res) => {
 
   const foundUser = await User.findOne({
     username: user.username,
-    password: "test",
+    password: user.password,
   });
 
   if (!foundUser)
@@ -15,7 +15,7 @@ const loginUser = async (req, res) => {
 
   res.json({
     msg: "Successfully logged in",
-    token: jwt.sign({ user: user.username }, "SECRET"),
+    token: jwt.sign({ user: foundUser.id }, "SECRET"),
     username: foundUser.username,
   });
 };

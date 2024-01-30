@@ -32,7 +32,6 @@ export class RegisterComponent {
 
     this.userService.register(this.user).subscribe({
       next: (res) => {
-        alert('Account created successfully!');
         this.initializeUser();
         this.router.navigate(['login']);
         this.messageService.setMessage(res.msg);

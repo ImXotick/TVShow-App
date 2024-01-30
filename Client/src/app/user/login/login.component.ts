@@ -23,11 +23,9 @@ export class LoginComponent {
   //Calls login
   login() {
     if (!this.user.username) {
-      this.messageService.setMessage('Username is empty!');
-      return this.messageService.openSnackBar();
+      return this.messageService.setMessage('Username is empty!');
     } else if (!this.user.password) {
-      this.messageService.setMessage('Password is empty!');
-      return this.messageService.openSnackBar();
+      return this.messageService.setMessage('Password is empty!');
     }
 
     this.userService.login(this.user).subscribe({
@@ -35,11 +33,9 @@ export class LoginComponent {
         this.initializeUser();
         this.router.navigate(['home']);
         this.messageService.setMessage(res.msg);
-        this.messageService.openSnackBar();
       },
       error: (res) => {
         this.messageService.setMessage(res.error.error);
-        this.messageService.openSnackBar();
       },
     });
   }

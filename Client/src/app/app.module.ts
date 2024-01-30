@@ -21,7 +21,6 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { TVShowAppInterceptor } from './services/TVShow-App-interceptor';
 import { AuthGGuard } from './guards/auth-g.guard';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
     SearchComponent,
     LoginComponent,
     RegisterComponent,
-    SnackbarComponent,
   ],
   imports: [
     BrowserModule,

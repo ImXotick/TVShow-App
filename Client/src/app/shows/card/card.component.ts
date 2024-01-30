@@ -44,11 +44,9 @@ export class CardComponent {
       next: (res) => {
         this.showItem.liked = !this.showItem.liked;
         this.messageService.setMessage(res.msg);
-        this.messageService.openSnackBar();
       },
       error: (error) => {
         this.messageService.setMessage(error);
-        this.messageService.openSnackBar();
       },
     });
   }

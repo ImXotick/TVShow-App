@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarComponent } from 'src/app/components/snackbar/snackbar.component';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +15,13 @@ export class MessagingService {
 
   public setMessage(m: string) {
     this.message = m;
+    this.openSnackBar();
   }
 
   openSnackBar() {
-    this._snackBar.openFromComponent(SnackbarComponent, {
-      duration: 3 * 1000,
+    this._snackBar.open(this.message, '', {
+      duration: 3000,
+      panelClass: ['grey-snackbar'],
     });
   }
 }

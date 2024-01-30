@@ -36,11 +36,9 @@ export class ModalComponent {
           this.data.show.comments.push(this.comment);
           this.initializeComment();
           this.messageService.setMessage(res.msg);
-          this.messageService.openSnackBar();
         },
         error: (res) => {
           this.messageService.setMessage(res.error.error);
-          this.messageService.openSnackBar();
         },
       });
     }

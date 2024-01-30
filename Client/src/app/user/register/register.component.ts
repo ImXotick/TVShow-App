@@ -23,14 +23,11 @@ export class RegisterComponent {
   //Calls register
   register() {
     if (!this.user.username) {
-      this.messageService.setMessage('Username is empty!');
-      return this.messageService.openSnackBar();
+      return this.messageService.setMessage('Username is empty!');
     } else if (!this.user.password) {
-      this.messageService.setMessage('Password is empty!');
-      return this.messageService.openSnackBar();
+      return this.messageService.setMessage('Password is empty!');
     } else if (this.confirmPassword !== this.user.password) {
-      this.messageService.setMessage('Passwords do not match!');
-      return this.messageService.openSnackBar();
+      return this.messageService.setMessage('Passwords do not match!');
     }
 
     this.userService.register(this.user).subscribe({
@@ -39,11 +36,9 @@ export class RegisterComponent {
         this.initializeUser();
         this.router.navigate(['login']);
         this.messageService.setMessage(res.msg);
-        this.messageService.openSnackBar();
       },
       error: (res) => {
         this.messageService.setMessage(res.error.error);
-        this.messageService.openSnackBar();
       },
     });
   }

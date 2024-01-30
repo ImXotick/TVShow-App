@@ -1,7 +1,7 @@
 <app-search (searchEmitter)="onSearch($event)" />
 <div class="container">
   <div *ngFor="let show of shows$ | async">
-    <div *ngIf="show.liked">
+    <div *ngIf="show.liked && show.title.toLowerCase().includes(searchedQuery)">
       <app-card [showItem]="show" />
     </div>
   </div>

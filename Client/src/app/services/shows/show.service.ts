@@ -9,24 +9,25 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class ShowService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getShows(): Observable<Show[]> {
-    console.log(this.http.get<Show[]>('http://localhost:3000/shows'));
-    return this.http.get<Show[]>('http://localhost:3000/shows');
+    return this.http.post<Show[]>('http://localhost:3000/shows', {
+      username: this.authService.username,
+    });
   }
 
   addComment(show: Show, comment: Comment): Observable<any> {
-    return this.http.post('http://localhost:3000/api/shows/comment', {
+    return this.http.post('http://localhost:3000/shows/comment', {
       show,
       comment,
     });
   }
 
-  //TODO: FIX
   toggleLiked(s: Show): Observable<any> {
-    return this.http.patch<Show>('http://localhost:3000/api/shows/' + s.id, {
+    return this.http.patch<Show>('http://localhost:3000/shows/' + s.id, {
       liked: !s.liked,
+      username: this.authService.username,
     });
   }
 }

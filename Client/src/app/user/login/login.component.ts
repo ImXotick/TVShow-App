@@ -25,7 +25,7 @@ export class LoginComponent {
         this.initializeUser();
         this.router.navigate(['home']);
       },
-      error: (error) => alert(error.error.msg),
+      error: (res) => alert(res.error.error),
     });
   }
 

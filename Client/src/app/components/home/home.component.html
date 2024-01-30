@@ -1,6 +1,8 @@
 <app-search (searchEmitter)="onSearch($event)" />
 <div class="container">
   <div *ngFor="let show of shows$ | async">
-    <app-card [showItem]="show" (refetchNewShows)="refetchShows()" />
+    <div *ngIf="show.title.toLowerCase().includes(searchedQuery)">
+      <app-card [showItem]="show" />
+    </div>
   </div>
 </div>

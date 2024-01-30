@@ -31,7 +31,8 @@ export class ModalComponent {
       this.comment.date = new Date().toLocaleDateString();
       this.showService.addComment(this.data.show, this.comment).subscribe({
         next: (result) => {
-          console.log('Successful!');
+          this.data.show.comments.push(this.comment);
+          this.initializeComment();
         },
         error: (error) => console.log(error),
       });

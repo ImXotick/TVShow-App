@@ -5,19 +5,18 @@ const jwt = require("jsonwebtoken");
 const loginUser = async (req, res) => {
   const { user } = req.body;
 
-  const foundUser = await User.find({
+  const foundUser = await User.findOne({
     username: user.username,
     password: user.password,
   });
 
-  if (foundUser.length === 0)
+  if (!foundUser)
     return res.status(400).json({ error: "User does not exist!" });
 
   res.json({
     msg: "Successfully logged in",
     token: jwt.sign({ user: user.username }, "SECRET"),
     username: foundUser.username,
-    likedShows: foundUser.likedShows,
   });
 };
 
@@ -25,10 +24,9 @@ const loginUser = async (req, res) => {
 const registerUser = async (req, res) => {
   const { user } = req.body;
 
-  const foundUser = await User.find({ username: user.username });
+  const foundUser = await User.findOne({ username: user.username });
 
-  if (foundUser.length > 0)
-    return res.status(400).json({ error: "Username taken!" });
+  if (foundUser) return res.status(400).json({ error: "User already exists!" });
 
   try {
     await User.create({

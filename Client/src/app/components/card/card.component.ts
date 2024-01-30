@@ -32,12 +32,8 @@ export class CardComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.addedComment = result;
-      if (this.addedComment) this.refetchShows();
+      //if (this.addedComment) this.refetchShows(); TODO: FIX
     });
-  }
-
-  refetchShows() {
-    this.refetchNewShows.emit();
   }
 
   //Calls toggleLiked in service
@@ -48,7 +44,6 @@ export class CardComponent {
     this.showService.toggleLiked(this.showItem).subscribe({
       next: (result) => {
         this.showItem.liked = !this.showItem.liked;
-        this.messageService.setMessage(result.msg);
       },
       error: (error) => this.messageService.setMessage(error),
     });

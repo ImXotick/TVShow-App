@@ -28,7 +28,7 @@ export class RegisterComponent {
         this.initializeUser();
         this.router.navigate(['login']);
       },
-      error: (error) => alert(error.error.msg),
+      error: (res) => alert(res.error.error),
     });
   }
 

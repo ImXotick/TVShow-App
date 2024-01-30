@@ -1,34 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Show } from '../../model/shows/show';
 import { ShowService } from '../../services/shows/show.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-liked-shows',
   templateUrl: './liked-shows.component.html',
   styleUrls: ['./liked-shows.component.css'],
 })
-export class LikedShowsComponent implements OnInit {
+export class LikedShowsComponent {
   public shows$: Observable<Show[]>;
+  public searchedQuery: string = '';
   public dialogVisible: boolean = false;
 
   constructor(private showService: ShowService) {
-    this.shows$ = showService.getShows();
+    this.shows$ = this.showService.getShows();
   }
 
-  onSearch(searchVal: string) {}
-
-  /*
-  onSearch(searchVal: string) {
-    const searchedShows = this.shows$.filter((item) => {
-      if (item.title.toLowerCase().includes(searchVal.toLowerCase())) {
-        return item;
-      } else return;
-    });
-
-    this.tempShows$ = searchedShows;
+  onSearch(searchQuery: string) {
+    this.searchedQuery = searchQuery.toLowerCase();
   }
-  */
-
-  ngOnInit(): void {}
 }

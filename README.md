@@ -10,5 +10,5 @@ Funckije:
 Uporabljene tehnologije:
   - Angular - FrontEnd
   - Node.js - BackEnd
-  - MongoDB - Podatkovna Baza - Deluje samo za testne dodane IP naslove
+  - MongoDB - Podatkovna Baza
   - Material designs

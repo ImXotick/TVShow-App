@@ -1,4 +1,5 @@
 .container {
+  height: auto;
   width: 35rem;
 }
 
@@ -34,7 +35,7 @@ a {
 }
 
 .comments {
-  max-height: 20rem;
+  max-height: 16rem;
   max-width: 35rem;
 }
 

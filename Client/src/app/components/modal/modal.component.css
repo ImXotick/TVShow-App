@@ -1,4 +1,5 @@
 .container {
+  max-height: 35rem;
   height: auto;
   width: 35rem;
 }

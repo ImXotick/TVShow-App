@@ -1,5 +1,5 @@
 .container {
-  height: fit-content;
+  height: auto;
   width: 35rem;
 }
 
